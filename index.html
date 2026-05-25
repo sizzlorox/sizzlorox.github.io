@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sizzlorox — Apps</title>
+  <meta name="description" content="Apps by sizzlorox. Shadow Vault — incognito notification archive for Android.">
+  <meta property="og:title" content="sizzlorox — Apps">
+  <meta property="og:description" content="Shadow Vault — incognito notification archive. Read every message on your terms.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sizzlorox.github.io">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:       #06060a;
+      --surface:  #111118;
+      --border:   #1e1e2a;
+      --text:     #e4e4ed;
+      --text-dim: #8888a0;
+      --accent:   #8b5cf6;
+      --accent-g: #a78bfa;
+      --radius:   12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── DECORATIVE LINES ─── */
+    .line-h {
+      height: 1px;
+      background: var(--border);
+      width: 100%;
+    }
+    .line-accent {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      width: 100%;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 24px;
+      background: rgba(6,6,10,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    nav .logo span { color: var(--accent); }
+    nav .links { display: flex; gap: 24px; }
+    nav .links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav .links a:hover { color: var(--text); }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 140px 24px 80px;
+      text-align: center;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 56px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(139,92,246,0.3);
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .hero h1 .thin {
+      font-weight: 400;
+      color: var(--text-dim);
+    }
+    .hero p {
+      font-size: 17px;
+      color: var(--text-dim);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .hero .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .hero .cta:hover {
+      background: var(--accent-g);
+      transform: translateY(-1px);
+    }
+    .hero .cta svg { width: 18px; height: 18px; fill: currentColor; }
+
+    /* ─── SECTION WRAPPERS ─── */
+    section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    section h2 {
+      font-size: clamp(24px, 4vw, 32px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 40px;
+      line-height: 1.2;
+    }
+
+    /* ─── FEATURES ─── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .feature {
+      background: var(--surface);
+      padding: 32px 28px;
+    }
+    .feature .icon {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background: rgba(139,92,246,0.1);
+      margin-bottom: 16px;
+    }
+    .feature .icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .feature h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .feature p {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    /* ─── SCREENSHOTS ─── */
+    .screenshots-wrap {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .phone-frame {
+      width: 220px;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .phone-frame::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .phone-frame img {
+      width: 100%;
+      border-radius: 28px;
+      display: block;
+    }
+    .phone-frame .caption {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-top: 12px;
+      font-weight: 500;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    footer p {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+    footer a {
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--accent); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 640px) {
+      .phone-frame { width: 160px; }
+      .phone-frame::before { border-radius: 20px; }
+      .phone-frame img { border-radius: 20px; }
+      section { padding: 56px 20px; }
+      .hero { padding: 120px 20px 56px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="inner">
+      <a href="#" class="logo">sizzlo<span>rox</span></a>
+      <div class="links">
+        <a href="#apps">Apps</a>
+        <a href="#features">Features</a>
+        <a href="https://github.com/sizzlorox" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="badge">Android App</div>
+    <h1>Shadow Vault<br><span class="thin">Notification Archive</span></h1>
+    <p>Incognito notification archive — read every message on your terms. Encrypted. Local-only. No cloud.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.shadowvault.shadowvault" class="cta" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333zm2.302-3.114L6.864 3.26l10.937 6.333zM20.16 10.95l-2.457 1.423-2.536-2.536 2.536-2.536 2.457 1.423c.68.394.68 1.832 0 2.226z"/></svg>
+      Get on Google Play
+    </a>
+  </div>
+
+  <div class="line-accent"></div>
+
+  <!-- SCREENSHOTS -->
+  <section id="apps">
+    <div class="section-label">Screenshots</div>
+    <h2>See it in action</h2>
+    <div class="screenshots-wrap">
+      <div class="phone-frame">
+        <img src="assets/screenshots/pin-lock.png" alt="Shadow Vault PIN lock screen" loading="lazy">
+        <div class="caption">PIN Lock</div>
+      </div>
+      <div class="phone-frame">
+        <img src="assets/screenshots/inbox.png" alt="Shadow Vault inbox with captured messages" loading="lazy">
+        <div class="caption">Encrypted Inbox</div>
+      </div>
+      <div class="phone-frame">
+        <img src="assets/screenshots/inbox-clean.png" alt="Shadow Vault clean inbox view" loading="lazy">
+        <div class="caption">Sovereign Mode</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="line-h"></div>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="section-label">Why Shadow Vault</div>
+    <h2>Privacy by design</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Encrypted at rest</h3>
+        <p>All messages stored in a SQLCipher-encrypted local database. Keys in Android Keystore.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>Sovereign Mode</h3>
+        <p>Read messages without ever opening the source app. No read receipts, no "last seen" updates.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>All messengers</h3>
+        <p>WhatsApp, Discord, Slack, Telegram, Signal, LINE, Messenger — any app that posts notifications.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></svg>
+        </div>
+        <h3>Zero cloud</h3>
+        <p>No account. No server. No sync. Nothing leaves your device. Ever.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3>PIN & Biometric</h3>
+        <p>Lock the app behind PIN or fingerprint. Your vault, your rules.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <h3>Full-text search</h3>
+        <p>Search across all captured messages. Find what you need instantly.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="line-h"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 sizzlorox &middot; <a href="https://sizzlorox.github.io/shadowvault-privacy-policy/">Privacy Policy</a> &middot; <a href="https://github.com/sizzlorox">GitHub</a></p>
+  </footer>
+
+</body>
+</html>
