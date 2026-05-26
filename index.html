@@ -3,12 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sizzlorox — Apps</title>
-  <meta name="description" content="Apps by sizzlorox. Shadow Vault — incognito notification archive for Android.">
-  <meta property="og:title" content="sizzlorox — Apps">
-  <meta property="og:description" content="Shadow Vault — incognito notification archive. Read every message on your terms.">
+  <title>Shadow Vault — Incognito Notification Archive for Android | sizzlorox</title>
+  <meta name="description" content="Shadow Vault is a privacy-first Android app that archives notifications locally with SQLCipher encryption. Read messages without read receipts. No cloud, no account, no tracking.">
+  <meta name="keywords" content="Shadow Vault, notification archive, Android, privacy, encrypted notifications, read receipts, incognito messaging, SQLCipher, local storage, no cloud">
+  <meta name="author" content="sizzlorox">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#06060a">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://sizzlorox.github.io">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Shadow Vault — Incognito Notification Archive">
+  <meta property="og:description" content="Encrypted, local-only notification archive for Android. Read every message on your terms — no read receipts, no tracking.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sizzlorox.github.io">
+  <meta property="og:image" content="https://sizzlorox.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Shadow Vault — Encrypted notification archive for Android with shield logo">
+  <meta property="og:site_name" content="sizzlorox">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shadow Vault — Incognito Notification Archive">
+  <meta name="twitter:description" content="Encrypted, local-only notification archive for Android. Read every message on your terms.">
+  <meta name="twitter:image" content="https://sizzlorox.github.io/assets/og-image.png">
+  <meta name="twitter:image:alt" content="Shadow Vault — Encrypted notification archive for Android">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -283,9 +308,9 @@
 <body>
 
   <!-- NAV -->
-  <nav>
+  <nav aria-label="Main navigation">
     <div class="inner">
-      <a href="#" class="logo">sizzlo<span>rox</span></a>
+      <a href="#" class="logo" aria-label="sizzlorox home">sizzlo<span>rox</span></a>
       <div class="links">
         <a href="#apps">Apps</a>
         <a href="#features">Features</a>
@@ -295,7 +320,8 @@
   </nav>
 
   <!-- HERO -->
-  <div class="hero">
+  <main>
+  <header class="hero">
     <div class="badge">Android App</div>
     <h1>Shadow Vault<br><span class="thin">Notification Archive</span></h1>
     <p>Incognito notification archive — read every message on your terms. Encrypted. Local-only. No cloud.</p>
@@ -303,9 +329,9 @@
       <svg viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333zm2.302-3.114L6.864 3.26l10.937 6.333zM20.16 10.95l-2.457 1.423-2.536-2.536 2.536-2.536 2.457 1.423c.68.394.68 1.832 0 2.226z"/></svg>
       Get on Google Play
     </a>
-  </div>
+  </header>
 
-  <div class="line-accent"></div>
+  <div class="line-accent" role="separator"></div>
 
   <!-- SCREENSHOTS -->
   <section id="apps">
@@ -313,21 +339,21 @@
     <h2>See it in action</h2>
     <div class="screenshots-wrap">
       <div class="phone-frame">
-        <img src="assets/screenshots/pin-lock.png" alt="Shadow Vault PIN lock screen" loading="lazy">
+        <img src="assets/screenshots/pin-lock.png" alt="Shadow Vault PIN lock screen showing a numeric keypad for secure app access" width="1080" height="2340" loading="lazy">
         <div class="caption">PIN Lock</div>
       </div>
       <div class="phone-frame">
-        <img src="assets/screenshots/inbox.png" alt="Shadow Vault inbox with captured messages" loading="lazy">
+        <img src="assets/screenshots/inbox.png" alt="Shadow Vault inbox displaying captured WhatsApp and Discord messages with timestamps" width="1080" height="2340" loading="lazy">
         <div class="caption">Encrypted Inbox</div>
       </div>
       <div class="phone-frame">
-        <img src="assets/screenshots/inbox-clean.png" alt="Shadow Vault clean inbox view" loading="lazy">
+        <img src="assets/screenshots/inbox-clean.png" alt="Shadow Vault clean inbox view in Sovereign Mode with no unread indicators" width="1080" height="2340" loading="lazy">
         <div class="caption">Sovereign Mode</div>
       </div>
     </div>
   </section>
 
-  <div class="line-h"></div>
+  <div class="line-h" role="separator"></div>
 
   <!-- FEATURES -->
   <section id="features">
@@ -379,12 +405,52 @@
     </div>
   </section>
 
-  <div class="line-h"></div>
+  <div class="line-h" role="separator"></div>
+  </main>
 
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 sizzlorox &middot; <a href="https://sizzlorox.github.io/shadowvault-privacy-policy/">Privacy Policy</a> &middot; <a href="https://github.com/sizzlorox">GitHub</a></p>
   </footer>
+
+  <!-- Structured Data: SoftwareApplication (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Shadow Vault",
+    "headline": "Shadow Vault — Incognito Notification Archive",
+    "description": "Privacy-first Android app that archives notifications locally with SQLCipher encryption. Read messages without read receipts. No cloud, no account, no tracking.",
+    "url": "https://sizzlorox.github.io",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Android",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "installUrl": "https://play.google.com/store/apps/details?id=com.shadowvault.shadowvault",
+    "screenshot": [
+      "https://sizzlorox.github.io/assets/screenshots/pin-lock.png",
+      "https://sizzlorox.github.io/assets/screenshots/inbox.png",
+      "https://sizzlorox.github.io/assets/screenshots/inbox-clean.png"
+    ],
+    "image": "https://sizzlorox.github.io/assets/og-image.png",
+    "author": {
+      "@type": "Person",
+      "name": "sizzlorox",
+      "url": "https://github.com/sizzlorox"
+    },
+    "featureList": [
+      "SQLCipher-encrypted local database",
+      "Sovereign Mode — read without read receipts",
+      "Supports WhatsApp, Discord, Slack, Telegram, Signal, LINE, Messenger",
+      "Zero cloud — no account, no server, no sync",
+      "PIN and biometric lock",
+      "Full-text search across all messages"
+    ]
+  }
+  </script>
 
 </body>
 </html>
