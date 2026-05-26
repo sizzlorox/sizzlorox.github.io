@@ -1,0 +1,54 @@
+# Shadow Vault
+
+> Shadow Vault is a privacy-first Android app that archives device notifications locally with SQLCipher encryption. Read every message on your terms — no read receipts, no "last seen" updates, no cloud, no account, no tracking.
+
+Shadow Vault captures notifications from any messaging app (WhatsApp, Discord, Slack, Telegram, Signal, LINE, Messenger, and more) and stores them in an encrypted local database. Users can read messages without ever opening the source app, avoiding read receipts and online status updates. The app is secured with PIN or biometric authentication and includes full-text search across all archived messages.
+
+- Developer: sizzlorox
+- Platform: Android
+- Price: Free
+- Privacy policy: https://sizzlorox.github.io/shadowvault-privacy-policy/
+
+## App
+
+- [Shadow Vault on Google Play](https://play.google.com/store/apps/details?id=com.shadowvault.shadowvault): Install Shadow Vault from the Google Play Store
+- [sizzlorox.github.io](https://sizzlorox.github.io): Official site with screenshots, features, and download link
+- [Privacy Policy](https://sizzlorox.github.io/shadowvault-privacy-policy/): Shadow Vault privacy policy — no data collection, everything stays on-device
+
+## Features
+
+### Encrypted at rest
+
+All messages are stored in a SQLCipher-encrypted local database. Encryption keys are managed by the Android Keystore, meaning they never leave the device's hardware-backed security module. Even if the device storage is accessed externally, the archived messages remain unreadable without the device's secure enclave.
+
+### Sovereign Mode
+
+Read messages without ever opening the source app. When you read a message in Shadow Vault, the sender's app has no idea — no read receipts are triggered, no "last seen" timestamp is updated, and no typing indicators appear. You maintain full control over your availability and attention.
+
+### All messengers
+
+Shadow Vault works with any Android app that posts notifications. This includes WhatsApp, Discord, Slack, Telegram, Signal, LINE, Facebook Messenger, Instagram, email clients, SMS apps, and any other application. If it sends a notification, Shadow Vault can capture and archive it.
+
+### Zero cloud
+
+There is no account creation, no server communication, no cloud sync, and no analytics. Nothing ever leaves the device. Shadow Vault operates entirely offline after installation. There is no backend service, no telemetry endpoint, and no third-party SDK that phones home.
+
+### PIN and biometric lock
+
+The app can be locked behind a PIN code or biometric authentication (fingerprint). This provides a second layer of protection — even if someone has access to the unlocked device, they cannot open Shadow Vault without the PIN or registered fingerprint.
+
+### Full-text search
+
+All archived messages are indexed for full-text search. Users can search across all captured notifications from all apps instantly, finding specific messages, senders, or keywords without scrolling through history.
+
+## Screenshots
+
+The official site at https://sizzlorox.github.io includes three screenshots:
+
+1. **PIN Lock** — Shows the PIN entry screen that protects access to the vault
+2. **Encrypted Inbox** — Shows the main inbox view with captured messages from various messaging apps, displaying sender names, app sources, and timestamps
+3. **Sovereign Mode** — Shows a clean inbox view demonstrating how messages can be read without triggering read receipts in the source app
+
+## Source
+
+- [sizzlorox on GitHub](https://github.com/sizzlorox): Developer profile and other projects
